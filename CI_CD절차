@@ -95,6 +95,17 @@ CI에 빌드하면하면, Webhook에 의해 CD까지 수행됨.
 
 
 
+---test
+http POST localhost:8081/reservations userid="admin" bookid="1"
+http PATCH localhost:8081/reservations/1 status="Canceled"
+http POST localhost:8082/stocks bookid="1" qty=5
+http GET localhost:8082/stocks/1
+http GET localhost:8081/reservations/1
+http localhost:8081
 
+
+az aks get-credentials --resource-group team4_rg --name team4-aks
+
+http POST bookstore.skcc.co.kr/stocks bookid="1" qty=5
 
 
